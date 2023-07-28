@@ -7,3 +7,6 @@ requests_html==0.10.0
 scipy==1.11.1
 streamlit==1.24.1
 yfinance==0.2.24
+
+[theme]
+base="dark"
