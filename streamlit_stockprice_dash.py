@@ -5,6 +5,7 @@ import warnings
 import joblib
 import os
 import streamlit as st
+import sklearn
 from datetime import date,timedelta,datetime
 from dateutil.relativedelta import relativedelta
 from scipy.stats import norm, skew
