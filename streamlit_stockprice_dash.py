@@ -175,7 +175,6 @@ def main():
         st.session_state.visibility = "All"
         st.session_state.disabled = False
   st.sidebar.write("Show close price for:")
-  st.sidebar.write("Fast selection")
   date_range = st.sidebar.radio(" ",
                  key="visibility",
                  options=["All", "1D", "5D","1M","3M","6M","1Y","5Y"],
