@@ -125,7 +125,9 @@ def CandlePlot(start_date,select,tickerName):
     end_date=datetime.strftime(date.today()+timedelta(days=1), '%Y-%m-%d')
     df1 =  yf.Ticker(tickerName).history(start='2016-01-01', end=end_date)
     if start_date!='All':
-       df1 =  yf.Ticker(tickerName).history(start=start_date, end=end_date)  
+       df1 =  yf.Ticker(tickerName).history(start=start_date, end=end_date)
+       if df1.empty ==True:
+           df1=yf.Ticker(tickerName).history(period='1d')
     if select!='select':
        df1['SMA-7 days']=df1['Close'].rolling(window=7,min_periods=1).mean()
        df1['SMA-14 days']=df1['Close'].rolling(window=14,min_periods=1).mean()
