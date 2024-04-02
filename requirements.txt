@@ -8,4 +8,5 @@ joblib==1.2.0
 scipy==1.7.3
 plotly==5.20.0
 requests_html==0.10.0
-lxml[html_clean]==5.2.1
+lxml==5.2.1
+lxml_html_clean==0.1.0
