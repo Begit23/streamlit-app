@@ -1,4 +1,4 @@
-Python == 3.8.15
+#Python == 3.8.15
 streamlit == 1.32.2
 pandas==1.5.3
 numpy==1.22.4
