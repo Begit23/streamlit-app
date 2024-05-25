@@ -261,6 +261,30 @@ def main():
              data_dict[i.split(': ')[0]]=i.split(': ')[1]
         df = pd.DataFrame(data_dict.items(), columns=['Key Stat', 'Value'])
         st.write(df)
+
+# Initialize the variables
+        scaler_file_path = None
+        reg_model_file_path = None
+        
+        if st.button("Predict the next stock price",key='unique_predict_button'):
+          # Print scaler file path
+          scaler_file_path = f'scaler_{ticker_list[stock_selectBox]}.pkl'
+          print("Scaler file path:", scaler_file_path)
+        
+          # Print regression model file path
+          reg_model_file_path = f'reg_{ticker_list[stock_selectBox]}.pkl'
+          print("Regression model file path:", reg_model_file_path)
+          try:
+             # Load scaler and regression model objects
+             scaler = joblib.load(scaler_file_path)
+             reg_model = joblib.load(reg_model_file_path)
+          except FileNotFoundError as e:
+            st.error(f"File not found: {e}")
+            return
+
+          result = scrape_and_predict(ticker_list[stock_selectBox], scaler, reg_model)
+          st.write('todays prediction', result)
+          st.write('todays prediction', reg_evaluations[reg_evaluations['Ticker'] == ticker_list[stock_selectBox]])
 if __name__ == '__main__':
     main()
 
